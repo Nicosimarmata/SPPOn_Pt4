@@ -12,7 +12,7 @@ class Pengguna extends Model
     use HasFactory;
     protected $table = 'pengguna';
     protected $primaryKey = 'id_pengguna';
-    protected $guard = 'id_pengguna';
+    protected $guarded= ['id_pengguna'];
 
     protected $hidden = 'password';
 

@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('orang_tua', function (Blueprint $table) {
             $table->id("id_ortu");
+            $table->string("nama_ortu",10);
+            $table->string("username");
+            $table->string("password");
             $table->unsignedBigInteger("id_pengguna");
 
             $table->foreign('id_pengguna')->references('id_pengguna')->on('pengguna')->onDelete('cascade');

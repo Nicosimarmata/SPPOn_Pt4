@@ -13,35 +13,39 @@
             <div class="main-content">
                 <div class="card">
                     <div class="card-header flex-column align-items-start">
-                        <h3 class="mb-3">Data Siswa</h3>
-                        <a href="{{route('admin.dtsiswa.tambah')}}" class="btn btn-primary"><i class="ik ik-plus-square"></i>Tambah Data</a>
+                        <h3 class="mb-3">Data Pengguna</h3>
+                        <a class="btn btn-primary" href="{{route('pengguna.create')}}"><i class="ik ik-plus-square"></i>Tambah Data</a>
                     </div>
                     <div class="card-body">
                         <div class="dt-responsive">
                             <table id="scr-vtr-dynamic" class="table table-striped table-bordered nowrap">
                                 <thead>
                                     <tr>
-                                        <th>Nama Siswa</th>
-                                        <th>Kelas</th>
-                                        <th>Jenis Kelamin</th>
-                                        <th>Status Ortu</th>
+                                        <th>Nama Lengkap</th>
+                                        <th>Username</th>
+                                        <th>Password</th>
+                                        <th>Role</th>
+                                        <th>No Telepon</th>
                                         <th>Alamat</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($pengguna as $item)
                                     <tr>
-                                        <td>Nur Achmad Khoirudin</td>
-                                        <td>9-B</td>
-                                        <td>Laki-laki</td>
-                                        <td>Masih Hidup</td>
-                                        <td>Jl. Ringroad Utara</td>
+                                        <td>{{$item->nama_lengkap}}</td>
+                                        <td>{{$item->username}}</td>
+                                        <td>{{$item->password}}</td>
+                                        <td>{{$item->role}}</td>
+                                        <td>{{$item->no_tlpn}}</td>
+                                        <td>{{$item->alamat}}</td>
                                         <td>
                                             <a href="#!"><i class="ik ik-eye f-16 mr-15 text-blue"></i></a>
                                             <a href="#!"><i class="ik ik-edit f-16 mr-15 text-green"></i></a>
                                             <a href="#!"><i class="ik ik-trash-2 f-16 text-red"></i></a>
                                         </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

@@ -13,29 +13,25 @@
             <div class="main-content">
                 <div class="card">
                     <div class="card-header flex-column align-items-start">
-                        <h3 class="mb-3">Data Siswa</h3>
-                        <a href="{{route('admin.dtsiswa.tambah')}}" class="btn btn-primary"><i class="ik ik-plus-square"></i>Tambah Data</a>
+                        <h3 class="mb-3">Data Orang Tua Siswa</h3>
+                        <a href="{{route('admin.dtortu.tambah')}}" class="btn btn-primary"><i class="ik ik-plus-square"></i>Tambah Data</a>
                     </div>
                     <div class="card-body">
                         <div class="dt-responsive">
                             <table id="scr-vtr-dynamic" class="table table-striped table-bordered nowrap">
                                 <thead>
                                     <tr>
-                                        <th>Nama Siswa</th>
-                                        <th>Kelas</th>
-                                        <th>Jenis Kelamin</th>
-                                        <th>Status Ortu</th>
+                                        <th>Nama Orang Tua</th>
+                                        <th>No Telepon</th>
                                         <th>Alamat</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>Nur Achmad Khoirudin</td>
-                                        <td>9-B</td>
-                                        <td>Laki-laki</td>
-                                        <td>Masih Hidup</td>
-                                        <td>Jl. Ringroad Utara</td>
+                                        <td>Joko</td>
+                                        <td>081212345678</td>
+                                        <td>Ringroad</td>
                                         <td>
                                             <a href="#!"><i class="ik ik-eye f-16 mr-15 text-blue"></i></a>
                                             <a href="#!"><i class="ik ik-edit f-16 mr-15 text-green"></i></a>
