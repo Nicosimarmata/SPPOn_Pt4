@@ -14,7 +14,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
+        'guard' => 'pengguna',
         'passwords' => 'users',
     ],
 
@@ -36,9 +36,17 @@ return [
     */
 
     'guards' => [
-        'web' => [
+        'pengguna' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'pengguna',
+        ],
+        'orangTua' => [
+            'driver' => 'session',
+            'provider' => 'orangTua',
+        ],
+        'siswa' => [
+            'driver' => 'session',
+            'provider' => 'siswa',
         ],
     ],
 
@@ -60,9 +68,19 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        'pengguna' => [
             'driver' => 'eloquent',
-            'model' => App\Models\pengguna::class,
+            'model' => App\Models\Pengguna::class,
+        ],
+
+        'orangTua' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\OrangTua::class,
+        ],
+
+        'siswa' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Siswa::class,
         ],
 
         // 'users' => [

@@ -9,33 +9,34 @@ use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
-    public function login(Request $request){
-        $validate = Validator::make($request->all(),[
+    public function login(Request $request)
+    {
+        $validate = Validator::make($request->all(), [
             "username" => 'string|required',
             "password" => 'string|required',
+            "role" => 'string|required',
         ]);
-        if ($validate->fails()){
+        if ($validate->fails()) {
             return redirect('login')->with('eror', 'Validasi gagal dilakukan');
-        } 
-
-     
-
-        $username = $request->input('username');
-        $password = $request->input('password');
-        $auth = Pengguna::attemptLogin($username, $password);
-        
-        if ($auth) {
-            // Khusus yang ada rolenya
-            if ($auth->role == "admin"){
-                return redirect ()-> route("admin.dashboard");
-            } elseif (Auth::pengguna()->role == "siswa"){
-                return redirect('/dashboard-siswa');  
-            }elseif (Auth::pengguna()->role == "orang_tua"){
-                return redirect('/dashboard-orang_tua');  
-                }
-            return redirect ('/dashboard');
-        }  else {
-            return back()->with('eror', "username atau password salah");
         }
+
+        $credentials = $request->only('username', 'password');
+
+        if ($request->role == 'admin') {
+            $guard = 'pengguna';
+            $redirect = route("admin.dashboard");
+        } else if ($request->role == 'siswa') {
+            $guard = 'siswa';
+            $redirect = '/dashboard-siswa';
+        } else if ($request->role == 'orang_tua') {
+            $guard = 'orangTua';
+            $redirect = '/dashboard-orang_tua';
+        }
+
+        if (Auth::guard($guard)->attempt($credentials)) {
+            return redirect($redirect);
+        }
+
+        return back()->with('eror', "username atau password salah");
     }
 }

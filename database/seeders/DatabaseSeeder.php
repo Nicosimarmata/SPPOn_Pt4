@@ -19,7 +19,6 @@ class DatabaseSeeder extends Seeder
             'nama_lengkap' => 'Nico Simarmata',
             'username' => 'MataCoco',
             'password' => Hash::make('admin123'),
-            'role' => 'admin',
             'no_tlpn' => '081260604445',
             'alamat' => 'Jalan Kebonagung',
         ]);

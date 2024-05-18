@@ -16,8 +16,7 @@ return new class extends Migration
             $table->string("nama_lengkap");
             $table->string("username");
             $table->string("password");
-            $table->enum("role",["admin","siswa","orang_tua"]);
-            $table->string("no_tlpn",15);
+            $table->string("no_tlpn", 15);
             $table->text("alamat");
             $table->timestamps();
         });
